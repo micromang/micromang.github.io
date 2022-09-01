@@ -42,8 +42,8 @@ logo:                  /assets/img/logo.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                <firstname> <lastname>
-  email:               <mail@domain.tld>
+  name:                Jinho Mang #<firstname> <lastname>
+  email:               jinhomang@gmail.com #<mail@domain.tld>
   # # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
@@ -51,10 +51,10 @@ author:
 menu:
   - title:             Blog
     url:               /blog/
-  - title:             Projects
-    url:               /projects/
-  - title:             Résumé*
-    url:               /resume/
+#  - title:             Projects
+#    url:               /projects/
+#  - title:             Résumé*
+#    url:               /resume/
   - title:             Documentation
     url:               /docs/
 
@@ -91,7 +91,7 @@ remote_theme: hydecorp/hydejack@v9
  
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/micromang-bg.jpg
-accent_color:          rgb(79,177,186)
+accent_color:          rgb(79,79,79) 
 
 # This is used for the `theme-color` meta tag,
 # which changes the background color of the browser UI in certain browsers.

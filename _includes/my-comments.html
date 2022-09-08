@@ -30,7 +30,7 @@
         config() {
           this.page.url = '{{ page.url }}'; //w.location.href;
           this.page.title = d.title;
-	  this.page.identifier = '{{ page.id }}'
+	  this.page.identifier = '{{ page.id }}';
         },
       });
 	d.write("111111111");
@@ -39,7 +39,7 @@
       w.disqus_config = function disqusConfig() {
         this.page.url = '{{ page.url }}'; //w.location.href;
         this.page.title = d.title;
-	this.page.identifier = '{{ page.id }}'
+	this.page.identifier = '{{ page.id }}';
       };
       w.loadJSDeferred(d.getElementById("_hrefDisqus").href + '/embed.js');
 	d.write("22222222");

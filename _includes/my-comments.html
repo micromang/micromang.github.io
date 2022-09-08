@@ -1,6 +1,7 @@
 {% assign disqus = site.disqus | default:site.disqus_shortname %}
 {% if disqus %}
 <div id="disqus_thread"></div>
+<!--
 <script>
     /**
     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -16,9 +17,11 @@
     (d.head || d.body).appendChild(s);
     })();
 </script>
+
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 {{ page.url }}
 {{ page.id }}
+-->
 <script>!function(w, d) {
   if (d.getElementById("disqus_thread")) {
     if (w.DISQUS) {
@@ -27,15 +30,18 @@
         config() {
           this.page.url = w.location.href;
           this.page.title = d.title;
+	  this.page.identifier = '{{ page.id }}'
         },
       });
     } else {
       w.disqus_config = function disqusConfig() {
         this.page.url = w.location.href;
         this.page.title = d.title;
+	this.page.identifier = '{{ page.id }}'
       };
       w.loadJSDeferred(d.getElementById("_hrefDisqus").href + '/embed.js');
     }
   }
 }(window, document);</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 {% endif %}

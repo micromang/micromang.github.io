@@ -33,6 +33,8 @@
 	  this.page.identifier = '{{ page.id }}'
         },
       });
+	d.write("111111111");
+	d.write(w.location.href);
     } else {
       w.disqus_config = function disqusConfig() {
         this.page.url = '{{ page.url }}'; //w.location.href;
@@ -40,6 +42,8 @@
 	this.page.identifier = '{{ page.id }}'
       };
       w.loadJSDeferred(d.getElementById("_hrefDisqus").href + '/embed.js');
+	d.write("22222222");
+	d.write(w.location.href);
     }
   }
 }(window, document);</script>

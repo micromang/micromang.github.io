@@ -1,27 +1,6 @@
 {% assign disqus = site.disqus | default:site.disqus_shortname %}
 {% if disqus %}
 <div id="disqus_thread"></div>
-<!--
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    var disqus_config = function () {
-    this.page.url = 'https://micromang.github.io{{ page.url }}';  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = '{{ page.id }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://micromang.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-{{ page.url }}
-{{ page.id }}
--->
 <script>!function(w, d) {
   if (d.getElementById("disqus_thread")) {
     if (w.DISQUS) {
@@ -33,8 +12,8 @@
 	  this.page.identifier = '{{ page.id }}';
         },
       });
-	d.write("111111111");
-	d.write(w.location.href);
+//	d.write("111111111");
+//	d.write(w.location.href);
     } else {
       w.disqus_config = function disqusConfig() {
         this.page.url = '{{ page.url }}'; //w.location.href;
@@ -42,8 +21,8 @@
 	this.page.identifier = '{{ page.id }}';
       };
       w.loadJSDeferred(d.getElementById("_hrefDisqus").href + '/embed.js');
-	d.write("22222222");
-	d.write(w.location.href);
+//	d.write("22222222");
+//	d.write(w.location.href);
     }
   }
 }(window, document);</script>

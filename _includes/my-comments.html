@@ -7,22 +7,22 @@
       w.DISQUS.reset({
         reload: true,
         config() {
-          this.page.url = '{{ page.url }}'; //w.location.href;
+          this.page.url = '{{ page.url }}'; 
           this.page.title = d.title;
 	  this.page.identifier = '{{ page.id }}';
         },
       });
-//	d.write("111111111");
-//	d.write(w.location.href);
+	d.write("111111111");
+	d.write(w.location.href);
     } else {
       w.disqus_config = function disqusConfig() {
-        this.page.url = '{{ page.url }}'; //w.location.href;
+        this.page.url = '{{ page.url }}'; 
         this.page.title = d.title;
 	this.page.identifier = '{{ page.id }}';
       };
       w.loadJSDeferred(d.getElementById("_hrefDisqus").href + '/embed.js');
-//	d.write("22222222");
-//	d.write(w.location.href);
+	d.write("22222222");
+	d.write(w.location.href);
     }
   }
 }(window, document);</script>

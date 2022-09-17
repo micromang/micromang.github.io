@@ -346,10 +346,10 @@ plugins:
 # ---------------------------------------------------------------------------------------
 
 # Where you proof that you own this site (used by jekyll-seo-tag)
-# google_site_verification: <verification-id>
+  google_site_verification: W8HU7bnD13KFJzSjmJu9uCx2Ta3NAvYovoeKMCBpV4Y
 # -- or --
 # webmaster_verifications:
-    google:              W8HU7bnD13KFJzSjmJu9uCx2Ta3NAvYovoeKMCBpV4Y
+#   google:              <verification-id>
 #   bing:                <verification-id>
 #   alexa:               <verification-id>
 #   yandex:              <verification-id>

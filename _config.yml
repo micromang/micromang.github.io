@@ -190,7 +190,8 @@ disqus:                micromang
 
 hydejack:
   # Configure the order of complementary content on blog posts
-  post_addons:         [about, newsletter, comments, related, random]
+  #post_addons:         [about, newsletter, comments, related, random]
+  post_addons:         [about, comments, related]
 
   # Configure the order of complementary content on project pages
   project_addons:      [about, newsletter, other, comments]

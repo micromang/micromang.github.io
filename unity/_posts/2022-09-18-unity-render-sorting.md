@@ -10,11 +10,11 @@ Unity를 사용하여 게임을 제작하다 보면, 한번 쯤은 객체의 렌
 ## 먼저 Opaque, 그 다음 Tranparent
 우선 반드시 숙지해야 할 것은 아래 내용입니다:  
 *Opaque 그룹에 속한 것부터 먼저 그리고, 그 다음에 Tranparent 그룹에 속한 것을 그린다.*  
-![Untitled](/assets/img/blog/unity-render-sorting-01.png){:.border.lead width="800" height="600" loading="lazy"}  
+![Untitled](/assets/img/blog/unity-render-sorting-01.png){:.border.lead loading="lazy"}
 여기서 렌더 큐 인덱스가 2500까지는 Opaque 그룹, 2501 이상인 경우는 Tranparent 그룹에 속합니다. 다시 말해, 2500번까지의 Opaque 그룹에 속한 지오메트리들은 2501번부터 그 이후의 큐 인덱스를 갖는 Tranparent 그룹에 속한 지오메트리들보다 ‘어떤 정렬 요소와 관계없이’ 먼저 그려집니다. 이 사실을 제대로 잘 인지하고 있지 않은 분들이 생각보다 많습니다. 이 기본 룰을 잊지 않도록 해야 합니다.
 ## 렌더 정렬 요소와 우선 순위
 그럼 이제 앞에서 언급한 내용을 바탕으로, Unity에서 제공하는 여러 정렬 요소들을 더하면 다음과 같은 그림이 그려집니다:    
-![Untitled](/assets/img/blog/unity-render-sorting-02.png){:.border.lead loading="lazy"}    
+![Untitled](/assets/img/blog/unity-render-sorting-02.png){:.border.lead loading="lazy"}
 그림이 복잡해 보일수도 있지만, 사실 내용은 간단합니다. 그림은 위에서 아래 방향으로 우선 순위를 가지고 지오메트리 정렬이 일어나는 모습을 표현합니다. Opaque 그룹의 지오메트리들이 가장 먼저 그려지고, 그 다음에 Transparent 그룹의 지오메트리들이 그려지며, 각 그룹 안에 존재하는 지오메트리 간의 순서 정렬은 여러 정렬 요소들에 의해 이뤄집니다. 각 정렬요소는 상대적인 우선순위가 있어 그 순서대로 적용되는데, 그림에서와 같이 각 그룹의 위쪽에 있는 정렬 요소가 상대적으로 우선순위가 높습니다. 만약 두 지오메트리가 상위 정렬 요소에 대해서 동일한 순위을 갖는 상태라면, 그 다음 하위 정렬 요소 값을 비교하여 드로우 순서를 정하게 됩니다. 예를 들어, Transparent 그룹에 속한 두 지오메트리가 같은 Sorting Layer/Order in Layer 값을 가진다면, 그 다음 정렬 요소인 Render Quere 기준으로 정렬하게 되고 이것마저도 같은 값이라면 Camera Sorting 및 엔진 내부 동작에 의해 순서가 결정됩니다.  
 그럼 각 정렬 요소들에 대해서 간단히 한번 살펴보겠습니다:
 ### Sorting Layer(SL)/Order in Layer(OiL)

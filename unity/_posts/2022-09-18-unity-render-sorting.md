@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Unity 렌더링 정렬 이해하기
+image: 
+  path: /assets/img/blog/unity-render-sorting-02.png
 comments: true
 description: 제대로 알지 못하면 헤어날 수 없는 정렬 지옥
 excerpt_separator:
@@ -35,6 +37,6 @@ Unity는 카메라 기준에 따라 지오메트리들을 정렬합니다. Tranp
 ## 마치며
 지금까지 Unity에서 렌더링 순서 정렬을 어떤 방식으로 처리하는지 전반적으로 살펴보았습니다. 이 글 처음에 언급했지만 제대로 이해하지 못한 채 닥친 문제를 해결하기에 급급하다간 개미지옥에서 헤어나올 수 없습니다. 현재 그리고 앞으로도 충분히 겪게 될 렌더링 정렬 이슈를 헤쳐나가는 데에 이 글이 조금이나마 도움이 되길 바랍니다.
 ## 레퍼런스
-[2D Sorting](https://docs.unity3d.com/2020.3/Documentation/Manual/2DSorting.html)
-[Sorting Groups](https://docs.unity3d.com/Manual/class-SortingGroup.html#InternalSort)
-[Camera.opaqueSortMode](https://docs.unity3d.com/2020.2/Documentation/ScriptReference/Camera-opaqueSortMode.html)
+[2D Sorting](https://docs.unity3d.com/2020.3/Documentation/Manual/2DSorting.html)  
+[Sorting Groups](https://docs.unity3d.com/Manual/class-SortingGroup.html#InternalSort)  
+[Camera.opaqueSortMode](https://docs.unity3d.com/2020.2/Documentation/ScriptReference/Camera-opaqueSortMode.html)  

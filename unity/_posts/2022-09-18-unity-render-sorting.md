@@ -29,9 +29,12 @@ Unity 게임오브젝트에 Sorting Group 컴포넌트를 추가하면, 해당 �
 Unity는 카메라 기준에 따라 지오메트리들을 정렬합니다. Tranparent 그룹에 대해서는 지오메트리를 뒤에서 앞(back-to-front) 순으로 정렬합니다. 그리고 Opaque 그룹에서는 기본적으로 앞에서 뒤(front-to-back)로 정렬합니다. 참고로, HSR 기능을 갖는 특정 GPU들은 거리 기반 정렬이 의미가 없기 때문에, 그런 경우에 한해서는 엔진 내부에서 거리 정렬을 수행하지 않습니다. 
 ### Engine Internal
 최종적으로 엔진 내부 수준에서 드로우 순서를 결정합니다. 앞서 Camera Sorting에서 언급한 특정 GPU에 대한 예외처리나 렌더링 효율을 위한 동적 배칭 처리 등 여러 상황에 따라 렌더링 순서 제어를 수행할 수 있습니다.
-    
-  
-각 정렬 요소에 대한 더 자세한 내용은 Unity 메뉴얼을 통해서 반드시 확인하시기 바랍니다.
-## 마무리
-지금까지 Unity에서 렌더링 순서 정렬을 어떤 방식으로 처리하는지 전반적으로 살펴보았습니다. 개발 중에 충분히 겪을 수 있는 렌더링 정렬 지옥을 회피하거나 빠져나오는 데에 이 글이 조금이나마 도움이 되길 바랍니다.
+
+     
+지금까지의 각 정렬 요소에 대한 더 자세한 내용은 Unity 메뉴얼을 통해서 반드시 확인하시기 바랍니다.
+## 마치며
+지금까지 Unity에서 렌더링 순서 정렬을 어떤 방식으로 처리하는지 전반적으로 살펴보았습니다. 이 글 처음에 언급했지만 제대로 이해하지 못한 채 닥친 문제를 해결하기에 급급하다간 개미지옥에서 헤어나올 수 없습니다. 현재 그리고 앞으로도 충분히 겪게 될 렌더링 정렬 이슈를 헤쳐나가는 데에 이 글이 조금이나마 도움이 되길 바랍니다.
 ## 레퍼런스
+[2D Sorting](https://docs.unity3d.com/2020.3/Documentation/Manual/2DSorting.html)
+[Sorting Groups](https://docs.unity3d.com/Manual/class-SortingGroup.html#InternalSort)
+[Camera.opaqueSortMode](https://docs.unity3d.com/2020.2/Documentation/ScriptReference/Camera-opaqueSortMode.html)

@@ -1,14 +1,14 @@
 ---
 layout: post
-title: Unity 렌더링 정렬 이해하기
+title: Unity 렌더링 순서 정렬 이해하기
 image: 
   path: /assets/img/blog/unity-render-sorting-00.png
 comments: true
-description: 제대로 알지 못하면 헤어날 수 없는 정렬 지옥
+description: 제대로 알지 못하면 헤어날 수 없는 렌더링 순서 지옥
 excerpt_separator:
 last_modified_at: 2022-09-18T22:00
 ---
-Unity를 사용하여 게임을 제작하다 보면, 한번 쯤은 객체의 렌더링 순서 문제로 인해 골머리 앓는 경우를 겪게 됩니다. 특히 2D 기반 게임의 경우엔 렌더링 순서 제어 작업은 개발 중에도 항상 주의를 기울이고 신경써야 하는 필수 요소 중 하나이죠. 그런데 이러한 렌더링 순서에 관련한 이슈가 생겼을 때, 보통 하나를 해결하면 다른 하나가 문제가 발생하고 그 문제를 해결하면 또 새로운 문제가 발생하여 꼬리에 꼬리를 물고서 이슈가 지속되는 경우가 많습니다. 이는 엔진의 렌더링 순서 정렬에 대한 충분한 이해가 없이, 당장 닥친 부분의 이슈만 해결하려 하기 때문입니다. 이 이슈가 우리를 끊임없이 잡아 끌어내리는 개미지옥으로 두지 않으려면, Unity의 렌더링 정렬에 대한 확실한 이해가 필요합니다.
+Unity를 사용하여 게임을 제작하다 보면, 한번 쯤은 객체의 렌더링 순서 문제로 인해 골머리 앓는 경우를 겪게 됩니다. 특히 2D 기반 게임의 경우엔 렌더링 순서 제어 작업은 개발 중에도 항상 주의를 기울이고 신경써야 하는 필수 요소 중 하나이죠. 그런데 이러한 렌더링 순서에 관련한 이슈가 생겼을 때, 보통 하나를 해결하면 다른 하나가 문제가 발생하고 그 문제를 해결하면 또 새로운 문제가 발생하여 꼬리에 꼬리를 물고서 이슈가 지속되는 경우가 많습니다. 이는 엔진의 렌더링 순서 정렬에 대한 충분한 이해가 없이, 당장 닥친 부분의 이슈만 해결하려 하기 때문입니다. 이 이슈가 우리를 끊임없이 잡아 끌어내리는 개미 지옥으로 두지 않으려면, Unity의 렌더링 순서 정렬에 대한 확실한 이해가 필요합니다.
 ## 먼저 Opaque, 그 다음 Tranparent
 우선 반드시 숙지해야 할 것은 아래 내용입니다:  
 *Opaque 그룹에 속한 것부터 먼저 그리고, 그 다음에 Tranparent 그룹에 속한 것을 그린다.*  
@@ -35,8 +35,8 @@ Unity는 카메라 기준에 따라 지오메트리들을 정렬합니다. Tranp
      
 지금까지의 각 정렬 요소에 대한 더 자세한 내용은 Unity 메뉴얼을 통해서 반드시 확인하시기 바랍니다.
 ## 마치며
-지금까지 Unity에서 렌더링 순서 정렬을 어떤 방식으로 처리하는지 전반적으로 살펴보았습니다. 이 글 처음에 언급했지만 제대로 이해하지 못한 채 닥친 문제를 해결하기에 급급하다간 개미지옥에서 헤어나올 수 없습니다. 현재 그리고 앞으로도 충분히 겪게 될 렌더링 정렬 이슈를 헤쳐나가는 데에 이 글이 조금이나마 도움이 되길 바랍니다.
+지금까지 Unity에서 렌더링 순서 정렬을 어떤 방식으로 처리하는지 전반적으로 살펴보았습니다. 이 글 처음에 언급했지만 제대로 이해하지 못한 채 닥친 문제를 해결하기에 급급하다간 개미 지옥에서 헤어나올 수 없습니다. 현재 그리고 앞으로도 충분히 겪게 될 렌더링 순서 정렬 이슈를 헤쳐나가는 데에 이 글이 조금이나마 도움이 되길 바랍니다.
 ## 레퍼런스
-[2D Sorting](https://docs.unity3d.com/2020.3/Documentation/Manual/2DSorting.html)  
-[Sorting Groups](https://docs.unity3d.com/Manual/class-SortingGroup.html#InternalSort)  
-[Camera.opaqueSortMode](https://docs.unity3d.com/2020.2/Documentation/ScriptReference/Camera-opaqueSortMode.html)  
+[Unity - 2D Sorting](https://docs.unity3d.com/2020.3/Documentation/Manual/2DSorting.html)  
+[Unity - Sorting Groups](https://docs.unity3d.com/Manual/class-SortingGroup.html#InternalSort)  
+[Unity - Camera.opaqueSortMode](https://docs.unity3d.com/2020.2/Documentation/ScriptReference/Camera-opaqueSortMode.html)  

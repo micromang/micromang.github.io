@@ -4,7 +4,8 @@ title: Unity 렌더링 순서 정렬 이해하기
 image: 
   path: /assets/img/blog/unity-render-sorting-00.png
 comments: true
-description: 제대로 알지 못하면 헤어날 수 없는 렌더링 순서 지옥
+description: >
+제대로 알지 못하면 헤어날 수 없는 렌더링 순서 지옥
 excerpt_separator:
 last_modified_at: 2022-09-18T22:00
 ---

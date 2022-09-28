@@ -1,6 +1,6 @@
 ---
 layout: grid
-title: Posts
+title: 게임 기술 블로그 
 description:
 grouped: true
 ---

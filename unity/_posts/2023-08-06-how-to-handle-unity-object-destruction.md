@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Unity 오브젝트의 소멸
+title: Object.Destroy()로 Unity 오브젝트 소멸시키기
 image: 
   path: /assets/img/blog/unity-render-sorting-00.png
 comments: true
 description: >
-  Unity 오브젝트 소멸 과정 이해하기 
+  Unity 오브젝트 소멸 제대로 이해하기
 excerpt_separator:
 last_modified_at: 2023-08-06T21:00
 ---

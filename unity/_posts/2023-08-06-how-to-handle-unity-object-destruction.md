@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Destroy()로 Unity 오브젝트 소멸시키기
+title: Unity 오브젝트의 소멸
 image: 
   path: /assets/img/blog/unity-render-sorting-00.png
 comments: true
 description: >
-  Unity 오브젝트가 소멸되면서 무슨 일이 일어나는 지 정확히 이해해야 한다. 
+  Unity 오브젝트 소멸 과정 이해하기 
 excerpt_separator:
 last_modified_at: 2023-08-06T21:00
 ---
@@ -41,19 +41,19 @@ MonoBehaviour 컴포넌트 소멸 시 또는 이것이 연결된 게임오브젝
 - 아래와 같이, 직접 게임오브젝트를 생성하는 경우, OnDestroy는 호출되지 않는다. MyComponent가 추가되기 전에 게임 오브젝트가 비활성화 상태이므로, Awake가 호출된 적이 없는 상태에서 소멸이 이루어졌다.    
     ```csharp
     GameObject myObject = new GameObject();
-    [myObject.SetActive](notion://myobject.setactive/)(false);
-    [myObject.AddComponent](notion://myobject.addcomponent/)<MyComponent>();
+    myObject.SetActive(false);
+    myObject.AddComponent<MyComponent>();
     Destroy(myObject);
     ```
     아래의 경우엔 OnDestroy가 호출된다. MyComponent 컴포넌트가 추가되는 시점에서 게임오브젝트는 기본적으로 활성화 상태였다. 따라서, 컴포넌트의 초기화가 이루어졌고 Awake함수가 호출되었다.
     
     ```csharp
     GameObject myObject = new GameObject();
-    [myObject.AddComponent](notion://myobject.addcomponent/)<MyComponent>();
-    [myObject.SetActive](notion://myobject.setactive/)(false);
+    myObject.AddComponent<MyComponent>();
+    myObject.SetActive(false);
     Destroy(myObject);
     ```
 ## 레퍼런스
 [Unity - Object.Destroy](https://docs.unity3d.com/ScriptReference/Object.Destroy.html)
 [Unity - MonoBehaviour.OnDestroy](https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnDestroy.html) 
-[Unity GameObject의 OnDestroy의 호출은 보장되지않는다.](https://mentum.tistory.com/621)
+[Unity GameObject의 OnDestroy의 호출은 보장되지 않는다.](https://mentum.tistory.com/621)

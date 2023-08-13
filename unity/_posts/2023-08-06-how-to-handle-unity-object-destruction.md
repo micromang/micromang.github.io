@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Object.Destroy()로 Unity 오브젝트 소멸시키기
+title: Destroy 메서드로 Unity 오브젝트 소멸시키기 - Part 1
 image: 
   path: /assets/img/blog/how-to-handle-unity-object-destruction/how-to-handle-unity-object-destruction-cover.png
 comments: true

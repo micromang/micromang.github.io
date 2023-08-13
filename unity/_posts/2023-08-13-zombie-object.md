@@ -2,7 +2,7 @@
 layout: post
 title: Destroy 메서드로 Unity 오브젝트 소멸시키기 - Part 2
 image: 
-  path: /assets/img/blog/unity-render-sorting-00.png
+  path: /assets/img/blog/zombie-object-cover.png
 description: >
   좀비 오브젝트로 인한 메모리 누수를 조심하자
 excerpt_separator:

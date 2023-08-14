@@ -14,7 +14,7 @@ slug: devops
 #  Check out `_featured_tags/example.md` to learn how to create your own.
 
 # (Optional) You can disable grouping posts by date.
-no_groups: true
+no_groups: false
 
 sitemap: true 
 ---

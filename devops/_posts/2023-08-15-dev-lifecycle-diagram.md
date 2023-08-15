@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 클라이언트 개발 라이프사이클 구조 다이어그램
+title: 클라이언트 개발 라이프사이클 다이어그램
 image: 
   path: /assets/img/blog/dev-lifecycle-diagram/cover.png
 comments: true
@@ -8,8 +8,7 @@ description:
 excerpt_separator:
 last_modified_at: 2023-08-15T16:00
 ---
-진행 중인 프로젝트의 클라이언트 개발 라이프사이클 구조에 대한 수립 작업을 진행하면서 간단하게 그림으로 정리해 보았다.
-
+진행 중인 프로젝트의 클라이언트 개발 라이프사이클을 수립하는 작업을 진행하면서 간단히 그림으로 정리해 보았다:
 ![Untitled](/assets/img/blog/dev-lifecycle-diagram/lifecycle-diagram.png)
 
 <aside>

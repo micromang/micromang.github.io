@@ -29,4 +29,4 @@ last_modified_at: 2023-08-16T00:15
 ## 레퍼런스
 [Dynamic Resolution Rendering Article](https://www.intel.com/content/www/us/en/developer/articles/technical/dynamic-resolution-rendering-article.html)  
 [Unity - Dynamic Resolution](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@16.0/manual/Dynamic-Resolution.html)   
-[Unity - Dynamic Resolution Sample](https://github.com/Unity-Technologies/DynamicResolutionSample)
+[Unity - Dynamic Resolution Sample](https://github.com/Unity-Technologies/DynamicResolutionSample)  

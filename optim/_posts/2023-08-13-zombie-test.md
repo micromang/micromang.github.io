@@ -10,20 +10,23 @@ excerpt_separator:
 last_modified_at: 2023-08-13T23:59
 ---
 
-UnityEngine.Object는 개념적으로 두 부분으로 구성된다.
-- 첫번째는 관리 오브젝트(managed Object)로서, C#으로 작성된 실제 우리가 접하는 영역이고 .NET 환경 내에서 동작한다. 따라서 이것은 GC에 의해 수집된다. 
-- 두번째는 네이티브 오브젝트(native Object)로서, 유니티 엔진의 네이티브 레벨(C++)에 할당된다. 이것이 실제적인 핵심 리소스이며 전적으로 엔진에 의해서 관리된다.
-메모리를 해제하려면 Destroy 메서드를 호출해야 한다.
-이렇게 유니티 오브젝트는 두 영역으로 구분되며, 각 영역의 오브젝트는 서로 연결되어 있다.
-![Untitled](/assets/img/blog/zombie-object/z-01.png)
+모바일 기기들은 성능이 제각각이므로 PC에 비해서 최적화에 더욱 신경써야 한다. 특히 저사양 기기에서도 게임 플레이가 원활히 진행되도록 하려면 동적 해상도(Dynamic Resolution)와 같은 기능은 도입하는 것이 좋다. 동적 해상도를 사용하면, 일관된 fps를 유지하도록 하여 사용자가 매끄러운 플레이 경험을 지속하게 할 수 있다. 뿐만 아니라, 해상도를 낮추어 렌더링함으로써 GPU 부하가 줄어들기 때문에 모바일 기기의 전력 소모를 줄이는 효과도 얻게 된다.
+그래서 이번 프로젝트 인게임에 동적 해상도 기능을 적용해 보았다.
 
-## Destroy 호출하면 안에서 무슨 일이 일어나는가?
-Destroy 메서드를 명시적으로 호출하면, 사실 네이티브 오브젝트가 메모리에서 해제된다. 관리 오브젝트는 자신과 연결된 실제 네이티브 오브젝트가 사라졌기 때문에, m_CachedPtr은 0으로 설정이 되고 이 유니티 오브젝트는 이제 유효하지 않게 된다. 그래서 이 오브젝트 참조를 통해서 여전히 멤버 변수에 접근하거나 메서드를 호출하려고 시도하면 MissingReferenceException이 발생한다. 관리 오브젝트 참조 자체가 null인 것은 아니기 때문에 NullReferenceException이 발생하지는 않지만, == 연산자로써 null과 비교하게 되면, (연산자 오버라이드에 의해) true가 반환된다.
-우선 유니티의 네이티브 오브젝트는 제거되었지만, 관리 오브젝트는 여전히 남아 있다. 이것은 GC에 의해 관리되는 오브젝트이기 때문에, 이 오브젝트에 대한 모든 참조가 사라지면 GC에 의해 회수될 것이다.
-![Untitled](/assets/img/blog/zombie-object/z-02.png)
+## 유니티의 동적 해상도
 
+사실 동적 해상도는 서브샘플링과 슈퍼샘플링 방식을 모두 포함하지만, 유니티에서는 (fps 향상을 위한) 성능 최적화의 목적만 가지므로 서브샘플링 방식만 지원한다. 따라서 백 버퍼 해상도 이하의 해상도로 낮추어 다운스케일 렌더링하고, 이것을 원래의 백 버퍼 해상도로 업스케일링하는 과정을 거친다. (기본적으로 업스케일링에 어떤 필터방식을 사용했는지 문서에는 별다른 설명을 찾을 수 없다. 다만, HDRP에서는 업스케일링 필터를 직접 선택할 수 있다.)
 
-## 좀비 오브젝트 
-Destroy가 호출된 후 네이티브 오브젝트가 제거되고 m_CachedPtr가 0이 되어서 더 이상 유효하지 않은 오브젝트가 되었음에도 불구하고, 다른 오브젝트가 이 오브젝트에 대한 참조를 들고 있다면, 메모리에 그대로 남은 상태가 된다. 그야말로 좀비와 다름없다. 이것은 유니티에서 흔히 발생할 수 있는 관리 오브젝트 메모리 누수 현상으로서, 해당 오브젝트와 관련된 모든 참조를 제거하지 않으면, 이 관리 오브젝트는 좀비처럼 메모리 상에 떠돌게 될 것이다.
-![Untitled](/assets/img/blog/zombie-object/z-03.png)
-보통 이벤트 핸들러, 델리게이트, 싱글턴 패턴, 코루틴 등에서 참조가 남거나 정적 리스트나 컬렉션에 오브젝트 참조가 여전히 포함되어 있다면 이런 현상이 발생할 수 있으니 반드시 주의해야 한다.
+## 동적 해상도 시나리오
+
+현재 프로젝트가 빌트인 파이프라인을 사용하기 때문에, Dynamic Resolution Handler와 같은 간단한 인터페이스는 사용할 수는 없었고, 유니티에서 제공하는 샘플 스크립트를 참고하여 직접 적용하였다. 동적 해상도 시나리오에 대한 플로우차트는 아래와 같이 그려볼 수 있다:
+![Untitled](/assets/img/blog/dynamic-resolution/dr-flowchart.png)
+
+## 품질 저하 이슈
+
+실시간으로 해상도를 낮추면서 발생하는 큰 문제점은 그래픽 품질이 떨어져 보인다는 것이다. 특히 UI 이미지가 다운스케일되면, 그래픽 품질이 더 극적으로 후져 보인다. 이것을 보완하기 위해서, UI와 월드를 구분하여 월드에만 동적 해상도를 적용하고 UI는 오리지널 해상도를 그대로 유지하도록 하였다. 이렇게 함으로써, 월드 해상도가 다소 낮아지는 상황에서도 플레이어의 그래픽 품질 저하 체감은 꽤나 무뎌진다.
+
+## 레퍼런스
+[Dynamic Resolution Rendering Article](https://www.intel.com/content/www/us/en/developer/articles/technical/dynamic-resolution-rendering-article.html)  
+[Unity - Dynamic Resolution](https://docs.unity3d.com/Packages/com.unity.render-pipelines.high-definition@16.0/manual/Dynamic-Resolution.html)  
+[Unity - Dynamic Resolution Sample](https://github.com/Unity-Technologies/DynamicResolutionSample)  

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 테스트
+title: Dynamic Resolution 적용하기
 image: 
   path: /assets/img/blog/zombie-object/zombie-object-cover.png
 comments: true  
 description: >
-  테스트
+  동적 해상도로 쾌적한 FPS 유지하기
 excerpt_separator:
 last_modified_at: 2023-08-13T23:59
 ---

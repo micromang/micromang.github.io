@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 동적 해상도(Dynamic Resolution) 적용하기
+title: Dynamic Resolution 적용하기
 image: 
   path: /assets/img/blog/dynamic-resolution/cover.png
 comments: true  

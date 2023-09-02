@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 쿼드 오버셰이딩 - Silent Performance Killer
+title: 쿼드 오버셰이딩 (Silent Performance Killer)
 image: 
   path: /assets/img/blog/quad-overshading/cover.png
 comments: true  
@@ -26,14 +26,13 @@ GPU는 2x2 픽셀 단위로 삼각형을 셰이딩한다. 어떤 폴리곤이 �
 
 ## 오버셰이딩: 프래그먼트 성능 저하
 쿼드 단위의 셰이딩은 실제 화면 픽셀과 관련된 셰이딩 처리 횟수 이상의 셰이딩 연산 즉, 오버셰이딩을 일으킨다 (오버셰이딩은 일종의 오버드로(overdraw)라고 볼 수 있기 때문에 쿼드 오버드로(quad overdraw)라고 지칭하기도 한다). 일반적인 상황에선 이 오버셰이딩은 큰 문제가 되지 않는다. 그러나 프래그먼트(픽셀) 셰이더 복잡성에 따라서 만약 매우 작은 크기 삼각형이나 아주 얇은 삼각형이 많은 메시를 렌더링할 경우에는 그 연산 비용이 크게 증가할 수 있다.
-
 ### 매우 작은 삼각형
 매우 작은 삼각형을 다시 생각해보자. 삼각형이 너무 작아서 화면에 1픽셀만 차지한다 해도, 어쨋든 쿼드 단위로 처리되기 때문에 4개의 프래그먼트 셰이딩이 발생합니다. 나머지 3개의 셰이딩 결과값은 화면 픽셀에는 반영되지 않고 1개만 유효합니다. 4개 중에 1개만 유효하므로 25% 효율성을 보인다.
 ![Untitled](/assets/img/blog/quad-overshading/a3.png)
 ### 삼각형 에지
-
 어느 정도의 면적을 갖는 일반적인 삼각형은 어떨까? 아래 그림에서 보는 것과 같이, 면적 안쪽에는 쿼드의 모든 픽셀이 화면 표시 픽셀로써 유효하기 때문에 100% 효율을 보인다. 그러나 가장자리 영역 즉, 에지 쪽으로 가면 그 효율은 낮아진다. 삼각형 에지 영역은 실제 화면 픽셀 영역을 벗어난 셰이딩 연산이 추가된다.
 또한 삼각형이라고 다 같은 삼각형은 아니다. 길고 가느다란 모양의 삼각형은 삼각형 면적 대비 에지(모서리)가 차지하는 비율이 높기 때문에 효율이 더욱 떨어진다.
+
 ![Untitled](/assets/img/blog/quad-overshading/a4.png)
 ![Untitled](/assets/img/blog/quad-overshading/a5.png)
 
@@ -41,7 +40,6 @@ GPU는 2x2 픽셀 단위로 삼각형을 셰이딩한다. 어떤 폴리곤이 �
 보통 3D 모델은 수백에서 수만개의 삼각형이 모여 하나의 모델을 구성한다. 따라서 각 삼각형 단위로 그려질 때 마다 에지 근처 오버셰이딩은 누적된다.
 아래의 그림을 보면, 3D 모델을 더 작은 삼각형들로 쪼개서 구성할수록 오버셰이딩이 심해지는 것을 볼 수 있다. 오버셰이딩가 심해진다는 것은 프래그먼트 처리 작업이 많다는 뜻이고, 이것은 GPU 프래그먼트 비용 증가로 인한 성능 저하로 연결된다.
 ![Untitled](/assets/img/blog/quad-overshading/a6.png)
-
 ### 복잡한 프래그먼트 셰이더 연산
 오버셰이딩은 연산할 프래그먼트 개수가 더 늘어난다는 의미이므로, 만약 프래그먼트 셰이더 코드의 연산이 복잡하해서 무겁다면 성능에 더 나쁜 영향을 준다. 예를 들어, 단일 패스에서 라이팅과 셰이딩 연산을 모두 수행하게 되는 포워드 렌더링 파이프라인에서 오버셰이딩에 의한 비용 증가는 더욱 치명적일 수 있다.
 
@@ -53,5 +51,5 @@ GPU는 2x2 픽셀 단위로 삼각형을 셰이딩한다. 어떤 폴리곤이 �
 [What are screen space derivatives and when would I use them?](https://gamedev.stackexchange.com/questions/130888/what-are-screen-space-derivatives-and-when-would-i-use-them)  
 [Counting Quads](https://blog.selfshadow.com/2012/11/12/counting-quads/)  
 [Unreal* Engine 4 Optimization Tutorial, Part 4](https://www.intel.com/content/www/us/en/developer/articles/training/unreal-engine-4-optimization-tutorial-part-4.html)  
-[https://paroj.github.io/gltut/Texturing/Tut15 How Mipmapping Works.html](https://paroj.github.io/gltut/Texturing/Tut15%20How%20Mipmapping%20Works.html)  
+[How Mipmapping Works](https://paroj.github.io/gltut/Texturing/Tut15%20How%20Mipmapping%20Works.html)  
 [Optimizing Triangles for a Full-screen Pass](https://wallisc.github.io/rendering/2021/04/18/Fullscreen-Pass.html)  

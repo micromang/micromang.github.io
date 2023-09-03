@@ -2,7 +2,7 @@
 layout: post
 title: Dynamic Resolution 적용하기
 image: 
-  path: /assets/img/blog/dynamic-resolution/cover.jpg
+  path: /assets/img/blog/dynamic-resolution/cover.png
 comments: true  
 description: >
   동적 해상도로 쾌적한 FPS 유지하기

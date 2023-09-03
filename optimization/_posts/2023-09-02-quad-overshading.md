@@ -35,8 +35,8 @@ GPU는 2x2 픽셀 단위로 삼각형을 셰이딩한다. 어떤 폴리곤이 �
 어느 정도의 면적을 갖는 일반적인 삼각형은 어떨까? 아래 그림에서 보는 것과 같이, 면적 안쪽에는 쿼드의 모든 픽셀이 화면 표시 픽셀로써 유효하기 때문에 100% 효율을 보인다. 그러나 가장자리 영역 즉, 에지 쪽으로 가면 그 효율은 낮아진다. 삼각형 에지 영역은 실제 화면 픽셀 영역을 벗어난 셰이딩 연산이 추가된다.
 또한 삼각형이라고 다 같은 삼각형은 아니다. 길고 가느다란 모양의 삼각형은 삼각형 면적 대비 에지(모서리)가 차지하는 비율이 높기 때문에 효율이 더욱 떨어진다.
 
-![Untitled](/assets/img/blog/quad-overshading/a4.png)  
-![Untitled](/assets/img/blog/quad-overshading/a5.png)  
+<img src="/assets/img/blog/quad-overshading/a4.png" alt="이미지_설명" style="max-width:40%; height:auto;">
+<img src="/assets/img/blog/quad-overshading/a5.png" alt="이미지_설명" style="max-width:40%; height:auto;">
 
 ### 폴리곤 누적 효과
 보통 3D 모델은 수백에서 수만개의 삼각형이 모여 하나의 모델을 구성한다. 따라서 각 삼각형 단위로 그려질 때 마다 에지 근처 오버셰이딩은 누적된다.

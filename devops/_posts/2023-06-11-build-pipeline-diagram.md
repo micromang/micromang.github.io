@@ -16,27 +16,27 @@ last_modified_at: 2023-06-11T23:20
 Jenkins 파이프라인에서 빌드를 진행하기 위해 필수 파라미터들을 지정한다. 빌드 파라미터에는 빌드 버전, 개발 스테이지, 타겟 리비전, 타겟 플랫폼, 타겟 아웃풋, 클린 빌드 여부 등 여러 가지가 있다.
 
 ## Phase 2: 에이전트 지정
-<img src="/assets/img/blog/build-pipeline-diagram/Untitled1.png" alt="" style="max-width:45%; height:auto;">     
+<img src="/assets/img/blog/build-pipeline-diagram/Untitled1.png" alt="" style="max-width:60%; height:auto;">     
 빌드를 진행할 에이전트를 지정한다. 현재 빌드 에이전트는 3개의 별도 머신으로 세팅해두었다. 윈도우 빌드와 android 빌드를 위한 윈도우 os 머신 2대와 ios 빌드를 위한 맥 os 머신 1대이다. 
 서비스할 시점에 가까워지면, 에이전트 개수는 추가로 몇 대 더 늘릴 예정이다.
 
 ## Phase 3: 스테이지
 
 ### Stage 1 - Preparation
-<img src="/assets/img/blog/build-pipeline-diagram/Untitled2.png" alt="" style="max-width:45%; height:auto;"> 
+<img src="/assets/img/blog/build-pipeline-diagram/Untitled2.png" alt="" style="max-width:60%; height:auto;"> 
 ### Stage 2 - Source
-<img src="/assets/img/blog/build-pipeline-diagram/Untitled3.png" alt="" style="max-width:45%; height:auto;"> 
+<img src="/assets/img/blog/build-pipeline-diagram/Untitled3.png" alt="" style="max-width:60%; height:auto;"> 
 ### Stage 3 - Build
-<img src="/assets/img/blog/build-pipeline-diagram/Untitled4.png" alt="" style="max-width:45%; height:auto;"> 
+<img src="/assets/img/blog/build-pipeline-diagram/Untitled4.png" alt="" style="max-width:60%; height:auto;"> 
 
-**빌드 정보 클래스 작성**
+**빌드 정보 클래스 작성**  
 빌드 정보를 포함하는 정적 클래스 C# 스크립트를 작성한다. 클라이언트에서는 이 클래스를 접근하여 빌드 정보를 가져올 수 있다.
 
-**빌드**
+**빌드**  
 iOS 빌드x를 제외한 모든 빌드는 unity 빌드만 수행하면 된다. iOS는 Xcode 빌드를 추가로 수행하며 아카이브와 익스포트 작업이 여기 포함된다. 빌드 아웃풋은 개별 플레이어 및 에셋번들 빌드 외에도, 테스트를 위한 오토봇 빌드와 안티치트/안티해킹용 데디서버 빌드도 할 수 있다.
 
 ### Stage 4 - Deploy
-<img src="/assets/img/blog/build-pipeline-diagram/Untitled5.png" alt="" style="max-width:45%; height:auto;">   
+<img src="/assets/img/blog/build-pipeline-diagram/Untitled5.png" alt="" style="max-width:60%; height:auto;">   
 현재는 내부 서버에만 배포하지만, 향후 릴리스를 위한 배포도 추가될 예정이다.
 
 ## Phase 4: 포스트 액션

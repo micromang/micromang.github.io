@@ -55,4 +55,5 @@ GPU는 2x2 픽셀 단위로 삼각형을 셰이딩한다. 어떤 폴리곤이 �
 [Counting Quads](https://blog.selfshadow.com/2012/11/12/counting-quads/)  
 [Unreal* Engine 4 Optimization Tutorial, Part 4](https://www.intel.com/content/www/us/en/developer/articles/training/unreal-engine-4-optimization-tutorial-part-4.html)  
 [How Mipmapping Works](https://paroj.github.io/gltut/Texturing/Tut15%20How%20Mipmapping%20Works.html)  
-[Optimizing Triangles for a Full-screen Pass](https://wallisc.github.io/rendering/2021/04/18/Fullscreen-Pass.html)  
+[Optimizing Triangles for a Full-screen Pass](https://wallisc.github.io/rendering/2021/04/18/Fullscreen-Pass.html) 
+[Triangulation](http://www.humus.name/index.php?page=News&ID=228)

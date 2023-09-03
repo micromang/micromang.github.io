@@ -20,7 +20,7 @@ last_modified_at: 2023-09-02T21:00
 
 ## 쿼드
 GPU는 2x2 픽셀 단위로 삼각형을 셰이딩한다. 어떤 폴리곤이 래스터라이징을 거쳐 화면의 픽셀로 셰이딩 처리를 해야 할 때, 1 픽셀이 아닌 2x2 픽셀 그룹 단위로 처리된다는 말이다.  
-![Untitled](/assets/img/blog/quad-overshading/a2.png)  
+<img src="/assets/img/blog/quad-overshading/a2.png" alt="" style="max-width:70%; height:auto;"> 
 예를 들어, 삼각형 크기가 아주 작아서 화면에 렌더링되었을 때에 단지 한 픽셀을 차지한다고 해도 1픽셀이 아닌 인접한 4개의 픽셀에 대해 셰이딩 처리가 된다. 이처럼 프래그먼트 셰이딩을 처리하는 최소 단위인 2x2 픽셀 영역 블록을 쿼드(quad)라고 부른다. 다시 말하자면, 프래그먼트 셰이딩 처리는 쿼드 블록 단위로 일어난다.
 
 ## 쿼드 단위 연산이 필요한 이유
@@ -30,13 +30,14 @@ GPU는 2x2 픽셀 단위로 삼각형을 셰이딩한다. 어떤 폴리곤이 �
 쿼드 단위의 셰이딩은 실제 화면 픽셀과 관련된 셰이딩 처리 횟수 이상의 셰이딩 연산 즉, 오버셰이딩을 일으킨다 (오버셰이딩은 일종의 오버드로(overdraw)라고 볼 수 있기 때문에 쿼드 오버드로(quad overdraw)라고 지칭하기도 한다). 일반적인 상황에선 이 오버셰이딩은 큰 문제가 되지 않는다. 그러나 프래그먼트(픽셀) 셰이더 복잡성에 따라서 만약 매우 작은 크기 삼각형이나 아주 얇은 삼각형이 많은 메시를 렌더링할 경우에는 그 연산 비용이 크게 증가할 수 있다.
 ### 매우 작은 삼각형
 매우 작은 삼각형을 다시 생각해보자. 삼각형이 너무 작아서 화면에 1픽셀만 차지한다 해도, 어쨋든 쿼드 단위로 처리되기 때문에 4개의 프래그먼트 셰이딩이 발생합니다. 나머지 3개의 셰이딩 결과값은 화면 픽셀에는 반영되지 않고 1개만 유효합니다. 4개 중에 1개만 유효하므로 25% 효율성을 보인다.
-![Untitled](/assets/img/blog/quad-overshading/a3.png)  
+<img src="/assets/img/blog/quad-overshading/a3.png" alt="" style="max-width:70%; height:auto;">
+
 ### 삼각형 에지
 어느 정도의 면적을 갖는 일반적인 삼각형은 어떨까? 아래 그림에서 보는 것과 같이, 면적 안쪽에는 쿼드의 모든 픽셀이 화면 표시 픽셀로써 유효하기 때문에 100% 효율을 보인다. 그러나 가장자리 영역 즉, 에지 쪽으로 가면 그 효율은 낮아진다. 삼각형 에지 영역은 실제 화면 픽셀 영역을 벗어난 셰이딩 연산이 추가된다.
 또한 삼각형이라고 다 같은 삼각형은 아니다. 길고 가느다란 모양의 삼각형은 삼각형 면적 대비 에지(모서리)가 차지하는 비율이 높기 때문에 효율이 더욱 떨어진다.
 
-<img src="/assets/img/blog/quad-overshading/a4.png" alt="이미지_설명" style="max-width:40%; height:auto;">
-<img src="/assets/img/blog/quad-overshading/a5.png" alt="이미지_설명" style="max-width:40%; height:auto;">
+<img src="/assets/img/blog/quad-overshading/a4.png" alt="" style="max-width:40%; height:auto;">
+<img src="/assets/img/blog/quad-overshading/a5.png" alt="" style="max-width:40%; height:auto;">
 
 ### 폴리곤 누적 효과
 보통 3D 모델은 수백에서 수만개의 삼각형이 모여 하나의 모델을 구성한다. 따라서 각 삼각형 단위로 그려질 때 마다 에지 근처 오버셰이딩은 누적된다.

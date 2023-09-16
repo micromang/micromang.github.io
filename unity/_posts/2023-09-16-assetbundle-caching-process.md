@@ -24,4 +24,7 @@ last_modified_at: 2023-09-16T22:00
 ![Untitled](/assets/img/blog/assetbundle-caching-process/ab-caching-02.png)
 이렇게 디스크 또는 메모리에 캐싱된 에셋번들은 에셋번들 로딩함수 호출 시에 에셋번들에 대한 메타데이터를 메모리에 로드한다. (그림에서는 생략했지만) LZ4 에셋번들 캐싱일 경우엔, 청크 단위 압축 정보들이 추가로 로드될 것이다.
 
+## 레퍼런스
+[Unity - AssetBundles Cache](https://docs.unity3d.com/2023.3/Documentation/Manual/AssetBundles-Cache.html)  
+[Unity - Learn to save memory usage by improving the way you use AssetBundles](https://blog.unity.com/technology/learn-to-save-memory-usage-by-improving-the-way-you-use-assetbundles)  
 

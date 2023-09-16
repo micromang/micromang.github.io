@@ -7,7 +7,7 @@ comments: true
 description: >
   유니티 내장 에셋번들 캐싱 동작 살펴보기
 excerpt_separator:
-last_modified_at: 2023-08-13T23:59
+last_modified_at: 2023-09-16T22:00
 ---
 
 유니티 내장 에셋번들 캐싱 시스템 동작을 플로우차트로 정리해보았다:

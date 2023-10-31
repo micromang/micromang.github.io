@@ -1,8 +1,6 @@
 ---
 layout: post
 title: 모바일에서의 타일기반 렌더링
-image: 
-  path: /assets/img/blog/tile-based-rendering/cover.png
 comments: true  
 description: >
   타일 기반 렌더링에 대한 기본 상식

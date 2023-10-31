@@ -1,8 +1,6 @@
 ---
 layout: post
 title: 클라이언트 개발 라이프사이클 다이어그램
-image: 
-  path: /assets/img/blog/dev-lifecycle-diagram/cover.png
 comments: true
 description: 
 excerpt_separator:

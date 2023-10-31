@@ -22,8 +22,9 @@ TBIMR은 렌더패스 당 지오메트리 처리와 프래그먼트 처리를 �
 
 ## TBDR (Tile-Based Deferred Rendering)
 TBDR은 TBIMR로부터 효율성을 좀더 고려한 방식이라고 볼 수 있다. TBDR에서는 래스터라이즈 단계에서 픽셀 단계로 바로 넘어가지 않고 지연시킨다. 먼저 타일에 속한 프리미티브들이 래스터라이즈 단계를 전부 거친 후, 깊이 테스트를 통해 실제 화면에 보이는 픽셀에 대한 정보들을 모두 기록한다. 여기서 화면에 표시되지 않는 픽셀들이 미리 제거되는 것이다. 그 후 픽셀 단계로 넘어가서 보이는 픽셀들에 대해서만 그리기 처리를 한다. 이로써 불필요한 픽셀 연산들과 텍스처 등을 버퍼에 읽어오는 행위를 줄이게 된다. 이것을 HSR(Hidden Surface Removal)이라고 하고, 하드웨어 수준에서 오버드로우를 줄여 성능 및 전력 효율을 향상시킨다. 그래서 TBDR에서는 소프트웨어 수준에서의 렌더 객체 정렬은 불필요하다.
-<img src="/assets/img/blog/tile-based-rendering/tbr3.png" alt="" style="max-width:80%; height:auto;">
-<img src="/assets/img/blog/tile-based-rendering/tbr4.png" alt="" style="max-width:65%; height:auto;">
+<img src="/assets/img/blog/tile-based-rendering/tbr3.png" alt="" style="max-width:100%; height:auto;">  
+
+<img src="/assets/img/blog/tile-based-rendering/tbr4.png" alt="" style="max-width:40%; height:auto;">
 
 
 ## 레퍼런스

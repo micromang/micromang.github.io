@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 빌드 자동화 파이프라인 구조 - 2 (feat. 로컬 빌드)
+title: 빌드 자동화 파이프라인 구조 - 2
 comments: true
 description: 
 excerpt_separator:

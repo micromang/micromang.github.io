@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 유니티 내장 에셋번들 캐싱 시스템 동작
+title: Unity 내장 에셋번들 캐싱 시스템 동작
 image: 
   path: /assets/img/blog/assetbundle-caching-process/ab-caching-01.png
 comments: true  

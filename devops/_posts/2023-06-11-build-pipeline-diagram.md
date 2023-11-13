@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 빌드 자동화 파이프라인 구조 다이어그램
+title: 빌드 자동화 파이프라인 구조 - 1 (feat. 젠킨스 파이프라인 다이어그램)
 image: 
   path: /assets/img/blog/unity-render-sorting-00.png
 comments: true

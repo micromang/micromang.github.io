@@ -4,7 +4,7 @@ title: 빌드 자동화 파이프라인 구조 - 2 (feat. 로컬 빌드)
 comments: true
 description: 
 excerpt_separator:
-last_modified_at: 2023-11-12T21:00
+last_modified_at: 2023-11-13T21:00
 ---
 
 ## 로컬 빌드 필요성

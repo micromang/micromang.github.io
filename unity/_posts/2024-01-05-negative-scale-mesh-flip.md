@@ -12,7 +12,7 @@ Unity에서 음수 스케일에 대해서 MeshRenderer의 메시를 처리하는
 
 어쨋든 이러한 이유로 인해 파티클에서는 음수 스케일을 사용하면 원하는 비주얼 효과가 나오지 않게 된다. 그래서 MeshRenderer에서의 음수 스케일 처리 방식과 동일하게 파티클에서도 적용하려면 별도의 처리를 해줘야 한다. (Note: 물론 Unity에서 메시에 관한 렌더링에 대해 음수 스케일을 사용하는 것은 일반적으로 권장되진 않는다. 노멀이나 물리 관련하여 복잡한 문제가 발생할 수 있기 때문이다.)
 
-![Untitled](/assets/img/blog/mesh-filp/mesh-flip.png)
+![Untitled](/assets/img/blog/mesh-flip/mesh-flip.png)
 
 복잡한 고려사항없이 단순히 MeshRenderer와 같이 음수 스케일 플립 효과를 파티클에서도 적용하고 싶다면 다음 방법들을 고려할 수 있다:
 

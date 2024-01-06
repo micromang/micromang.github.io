@@ -8,6 +8,8 @@ excerpt_separator:
 last_modified_at: 2024-01-05T01:00
 ---
 
+  
+
 # 상태머신(State Machine)
 
 ### 장점

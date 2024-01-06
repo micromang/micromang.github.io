@@ -5,7 +5,7 @@ comments: true
 description: >
   개발 경험에서 느껴지는 상태머신(또는 유한상태머신)과 비헤이비어트리의 장단점 요약
 excerpt_separator:
-last_modified_at: 2024-01-06T01:00
+last_modified_at: 2024-01-05T01:00
 ---
 
 # 상태머신(State Machine)

@@ -15,16 +15,17 @@ last_modified_at: 2024-01-20T20:00
 
 ### 불투명 렌더큐에서의 멀티패스 렌더링 순서
 - 서로 같은 머티리얼의 경우
-다음과 같은 순서로 렌더링된다: A-Pass#0 -> B-Pass#0 -> C-Pass#0 -> A-Pass#1 -> B-Pass#1 -> C-Pass#1 -> A-Pass#2...
+다음과 같은 순서로 렌더링된다: A-Pass#0 -> B-Pass#0 -> C-Pass#0 -> A-Pass#1 -> B-Pass#1 -> C-Pass#1 -> A-Pass#2...  
+낮은 인덱스의 셰이더 패스들이 먼저 렌더링된다.  
 ![Untitled](/assets/img/blog/multi-pass-render-order/b1.png)
-낮은 인덱스의 셰이더 패스들이 먼저 렌더링된다.
+
 - 서로 다른 머티리얼의 경우
-이 경우엔 인지할 수 있는 정확한 규칙을 찾을 수 없다.
+이 경우엔 인지할 수 있는 정확한 규칙을 찾을 수 없다.    
 ![Untitled](/assets/img/blog/multi-pass-render-order/b2.png)
 
 ### 투명 렌더큐에서의 멀티패스 렌더링 순서
 다음과 같은 순서로 렌더링된다: A-Pass#0 -> A-Pass#1 -> A-Pass#2 -> B-Pass#0 -> B-Pass#1 -> B-Pass#2 -> C-Pass#0 -> ...
-각각의 오브젝트에 대해 셰이더 패스들을 나눠서 렌더링한다.
+각각의 오브젝트에 대해 셰이더 패스들을 나눠서 렌더링한다.    
 ![Untitled](/assets/img/blog/multi-pass-render-order/b3.png)
 
 ### 렌더링 순서가 다른 이유

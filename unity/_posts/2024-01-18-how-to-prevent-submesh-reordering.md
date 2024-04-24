@@ -3,7 +3,7 @@ layout: post
 title: 서브메시 드로우 순서 리오더링 방지
 comments: true  
 description: >
-  서브메시에 대한 엔진의 최적화 메커니즘 거스르기
+  서브메시에 대한 최적화 메커니즘 거스르기
 excerpt_separator:
 last_modified_at: 2024-01-18T21:30
 ---

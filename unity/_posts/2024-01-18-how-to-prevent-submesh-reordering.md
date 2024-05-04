@@ -6,6 +6,7 @@ description: >
   서브메시에 대한 최적화 메커니즘 거스르기
 excerpt_separator:
 last_modified_at: 2024-01-18T21:30
+redirect_to: https://ahden23.github.io/unity/2024/01/18/how-to-prevent-submesh-reordering.html
 ---
 
 유니티는 렌더링 성능을 최적화하기 위해 머티리얼과 렌더링 설정을 기반으로 오브젝트들을 자동으로 정렬한다. 이 과정에서 (렌더링 상태 변경을 최소화하기 위해) 동일한 머티리얼을 사용하는 것들끼리 묶어서 함께 렌더링할 수 있다. 이러한 엔진에서의 최적화는 개발자가 의도한 렌더링 순서에 영향을 줄 수 있다.
